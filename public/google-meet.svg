@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 40" role="img" aria-label="Google Meet">
+  <defs>
+    <mask id="lens">
+      <rect width="48" height="40" fill="#fff"/>
+      <circle cx="12" cy="24" r="3" fill="#000"/>
+    </mask>
+  </defs>
+  <g mask="url(#lens)">
+    <rect x="0" y="10" width="34" height="26" rx="6" fill="#FCC934"/>
+    <path fill="#FBBC04" d="M34 18l14-8v22l-14-8z"/>
+  </g>
+</svg>

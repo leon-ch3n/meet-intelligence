@@ -1,0 +1,263 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-roboto);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-roboto-flex);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* Semantic tokens — see docs/screens.md Visual direction. */
+  --color-action: var(--action);
+  --color-action-foreground: var(--action-foreground);
+  --color-action-subtle: var(--action-subtle);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-subtle: var(--success-subtle);
+  --color-attention: var(--attention);
+  --color-attention-foreground: var(--attention-foreground);
+  --color-attention-subtle: var(--attention-subtle);
+  --color-risk: var(--risk);
+  --color-risk-foreground: var(--risk-foreground);
+  --color-risk-subtle: var(--risk-subtle);
+  --color-insight: var(--insight);
+  --color-insight-foreground: var(--insight-foreground);
+  --color-insight-subtle: var(--insight-subtle);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Google Workspace surface tokens. Base is #F8F9FA (very slightly warm),
+     raised surfaces are pure white, borders lean cool grey. See docs/screens.md. */
+  --background: oklch(0.975 0.002 250);          /* ~#F8F9FA */
+  --foreground: oklch(0.24 0.008 250);           /* ~#202124 */
+  --card: oklch(1 0 0);                          /* pure white raised surface */
+  --card-foreground: oklch(0.24 0.008 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.008 250);
+  --primary: oklch(0.24 0.008 250);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.955 0.003 250);
+  --secondary-foreground: oklch(0.24 0.008 250);
+  --muted: oklch(0.955 0.003 250);               /* ~#F1F3F4 */
+  --muted-foreground: oklch(0.475 0.008 250);    /* ~#5F6368 */
+  --accent: oklch(0.955 0.003 250);
+  --accent-foreground: oklch(0.24 0.008 250);
+  --destructive: oklch(0.577 0.220 27);
+  --border: oklch(0.895 0.005 250);              /* ~#DADCE0 */
+  --input: oklch(0.895 0.005 250);
+  --ring: oklch(0.598 0.170 258);                /* Google Blue */
+  --chart-1: oklch(0.598 0.170 258);
+  --chart-2: oklch(0.628 0.155 145);
+  --chart-3: oklch(0.740 0.165 79);
+  --chart-4: oklch(0.590 0.220 26);
+  --chart-5: oklch(0.560 0.220 302);
+  /* Radius: Material "medium" is 8–12px. Cards get 12; buttons pill via
+     Tailwind's rounded-full — that's decoupled from --radius. */
+  --radius: 0.75rem;
+  --sidebar: oklch(1 0 0);                       /* white sidebar, like Gmail */
+  --sidebar-foreground: oklch(0.24 0.008 250);
+  --sidebar-primary: oklch(0.598 0.170 258);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.955 0.003 250);
+  --sidebar-accent-foreground: oklch(0.24 0.008 250);
+  --sidebar-border: oklch(0.895 0.005 250);
+  --sidebar-ring: oklch(0.598 0.170 258);
+
+  /* Semantic palette — Google Workspace canonical values (Blue #1A73E8, Green
+     #188038, Yellow #F9AB00, Red #D93025). Subtle variants match Gmail label
+     backgrounds. */
+  --action: oklch(0.598 0.170 258);              /* #1A73E8 Google Blue */
+  --action-foreground: oklch(1 0 0);
+  --action-subtle: oklch(0.955 0.030 258);       /* ~#E8F0FE */
+  --success: oklch(0.550 0.145 145);             /* #188038 */
+  --success-foreground: oklch(1 0 0);
+  --success-subtle: oklch(0.955 0.028 145);      /* ~#E6F4EA */
+  --attention: oklch(0.740 0.165 79);            /* #F9AB00 */
+  --attention-foreground: oklch(0.24 0.008 250);
+  --attention-subtle: oklch(0.965 0.040 82);     /* ~#FEF7E0 */
+  --risk: oklch(0.590 0.220 26);                 /* #D93025 */
+  --risk-foreground: oklch(1 0 0);
+  --risk-subtle: oklch(0.960 0.030 26);          /* ~#FCE8E6 */
+  --insight: oklch(0.560 0.220 302);             /* Google purple #9334E6 */
+  --insight-foreground: oklch(1 0 0);
+  --insight-subtle: oklch(0.960 0.030 302);      /* ~#F3E8FD */
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+
+  --action: oklch(0.660 0.180 259);
+  --action-foreground: oklch(0.145 0 0);
+  --action-subtle: oklch(0.275 0.055 259);
+  --success: oklch(0.700 0.170 149);
+  --success-foreground: oklch(0.145 0 0);
+  --success-subtle: oklch(0.275 0.055 149);
+  --attention: oklch(0.815 0.155 71);
+  --attention-foreground: oklch(0.145 0 0);
+  --attention-subtle: oklch(0.290 0.060 71);
+  --risk: oklch(0.660 0.200 26);
+  --risk-foreground: oklch(0.145 0 0);
+  --risk-subtle: oklch(0.280 0.055 26);
+  --insight: oklch(0.660 0.230 302);
+  --insight-foreground: oklch(0.145 0 0);
+  --insight-subtle: oklch(0.285 0.060 302);
+}
+
+@layer utilities {
+  /* Chat / prompt-widget entrance animations.
+     Deterministic — no live AI, no network — but visually communicates "the
+     assistant is doing something." Consumed by the meeting-detail chat rail
+     and the Ask panel. */
+  @keyframes chat-fade-rise {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes chat-thinking-dot {
+    0%, 60%, 100% {
+      opacity: 0.25;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+  }
+  .animate-chat-rise {
+    animation: chat-fade-rise 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-thinking-dot {
+    animation: chat-thinking-dot 1200ms ease-in-out infinite both;
+  }
+  /* Aurora background gradient — slow diagonal sweep used by the Ask page
+     hero. The gradient itself lives on the element via inline CSS custom
+     properties; this keyframe just drifts the background-position. */
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
+  }
+  .animate-aurora {
+    animation: aurora 60s linear infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Lucide defaults to stroke-width 2 — a fraction too heavy for a Google-
+     surface feel. 1.5 matches Material Symbols' outlined weight and reads as
+     "Googley" without swapping the icon library. */
+  svg.lucide {
+    stroke-width: 1.5;
+  }
+  /* Google-style focus ring: 2px Google Blue at ~40% alpha with a 2px offset
+     halo, matching Workspace's visible-focus indicator. */
+  :where(a, button, [role="button"], [role="menuitem"], [role="tab"], [tabindex]:not([tabindex="-1"]), input, select, textarea, summary):focus-visible {
+    outline: 2px solid color-mix(in oklch, var(--action) 55%, transparent);
+    outline-offset: 2px;
+  }
+  html {
+    font-family:
+      var(--font-roboto),
+      "Roboto",
+      "Google Sans Text",
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      sans-serif;
+  }
+  .font-heading, h1, h2, h3, h4, h5, h6 {
+    font-family:
+      var(--font-roboto-flex),
+      "Roboto Flex",
+      "Google Sans",
+      "Roboto",
+      system-ui,
+      sans-serif;
+    /* Google display text tracks tight but not aggressive. */
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+}
